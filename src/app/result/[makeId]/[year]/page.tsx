@@ -45,7 +45,7 @@ export default async function ResultPage({ params }: ResultPageProps) {
     const data = await getVehicleModels(makeId, year);
 
     return (
-      <div className="container h-svh mx-auto p-4">
+      <div className="container min-h-svh mx-auto p-4">
         <h1 className="text-2xl font-bold mb-4">Models for {year}</h1>
 
         {data.Count === 0 ? (
@@ -54,20 +54,24 @@ export default async function ResultPage({ params }: ResultPageProps) {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {data.Results.map(model => (
-              <div
-                key={model.Model_ID}
-                className="border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <h2 className="font-semibold text-lg">{model.Model_Name}</h2>
-                <p className="text-sm text-gray-600">
-                  Manufacturer: {model.Make_Name}
-                </p>
-                <p className="text-sm text-gray-600">
-                  Model ID: {model.Model_ID}
-                </p>
-              </div>
-            ))}
+            {data.Results.map(model => {
+              const uniqueKey = `${model.Model_ID}-${model.Make_ID}-${year}`;
+
+              return (
+                <div
+                  key={uniqueKey}
+                  className="border rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <h2 className="font-semibold text-lg">{model.Model_Name}</h2>
+                  <p className="text-sm text-gray-600">
+                    Manufacturer: {model.Make_Name}
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    Model ID: {model.Model_ID}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
