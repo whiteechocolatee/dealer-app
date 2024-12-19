@@ -33,9 +33,8 @@ module.exports = {
   ignorePatterns: [
     '.next/',
     '.eslintrc.cjs',
-    'components/ui/',
+    'src/components/ui',
     'prettier.config.js',
-    'test.tsx',
     'tailwind.config.ts',
     'postcss.config.mjs',
     'next.config.mjs',
