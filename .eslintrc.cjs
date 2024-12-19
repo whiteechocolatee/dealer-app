@@ -34,7 +34,7 @@ module.exports = {
     '.next/',
     '.eslintrc.cjs',
     'src/components/ui',
-    'prettier.config.js',
+    '.prettierrc',
     'tailwind.config.ts',
     'postcss.config.mjs',
     'next.config.mjs',
