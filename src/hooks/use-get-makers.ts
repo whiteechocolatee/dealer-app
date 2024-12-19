@@ -7,7 +7,7 @@ export interface VehicleMake {
   VehicleTypeName: string;
 }
 
-interface ApiResponse {
+export interface ApiResponse {
   Count: number;
   Message: string;
   SearchCriteria: string;

@@ -7,15 +7,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { usePopulateYears } from '@/hooks/use-populate-years';
-import React from 'react';
+import { generateYears } from '@/lib/utils';
 
 type YearSelectorProps = {
   handleYear: (value: string) => void;
 };
 
 function YearSelector({ handleYear }: YearSelectorProps) {
-  const { years } = usePopulateYears();
+  const years = generateYears();
 
   return (
     <Select onValueChange={handleYear}>
